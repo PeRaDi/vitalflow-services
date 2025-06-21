@@ -3,6 +3,7 @@ import json
 import uuid
 import os
 import time
+from dotenv import load_dotenv
 
 def wait_for_rabbitmq():
     retries = 10
@@ -92,5 +93,6 @@ class RpcGateway:
         self.channel.start_consuming()
 
 if __name__ == '__main__':
+    load_dotenv()
     wait_for_rabbitmq()
     RpcGateway().start()
